@@ -1,10 +1,14 @@
 const contactsSchema = require('../models/contactsSchema')
-
+/*
+*Mark:
+*Good route naming (,I can see the intent of each route) but it's better to use dashes(-) than underscores(_)
+*The reason why we use lowercases and dashes is because typing routes should be easier (You don't press the shift key all the time when you type your route)
+*/
 const saveContacts = (app) => {
-  
+    
     app.post('/save_contact' , async (req, res) => {
         let {contact_number , contact_name , contact_email} = req.body
-
+        /*Mark: if you data variables and structure are the same as the one you are accepting in the database there is no need to restructure*/
     try{
         let post = new contactsSchema ({
             contact_number , contact_name , contact_email
